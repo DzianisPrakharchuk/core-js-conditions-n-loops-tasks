@@ -221,10 +221,17 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const half = str.length / 2;
+  let i = 0;
+  while (i < half) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+    i += 1;
+  }
+  return true;
 }
-
 /**
  * Finds the first occurrence of a letter in a string.
  * In this task, the use of methods of the String and Array classes is not allowed.
@@ -239,8 +246,14 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
+    if (char === letter) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -258,8 +271,15 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const str = `${num}`;
+  const strDigit = `${digit}`;
+  let i = 0;
+  while (i < str.length) {
+    if (str[i] === strDigit) return true;
+    i += 1;
+  }
+  return false;
 }
 
 /**
